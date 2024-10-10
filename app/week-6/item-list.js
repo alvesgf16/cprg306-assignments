@@ -3,6 +3,7 @@
 import Item from './item';
 import Button from './button';
 import useSortAndFilter from './use-sort-and-filter';
+import CategoryList from './category-list';
 
 export default function ItemList() {
   const {
@@ -11,17 +12,14 @@ export default function ItemList() {
     sortByName,
     sortByCategory,
     sortByGroupedCategory,
-  } = useSortAndFilter(itemsJson);
+  } = useSortAndFilter();
 
   const renderWithCategory = ([category, categoryItems]) => (
-    <div key={`${category}-category`} className="">
-      <h2 className="mt-5 text-xl font-bold text-gray-300 capitalize">
-        {category}
-      </h2>
-      <ul className="list-none">
-        {categoryItems.map(renderItem)}
-      </ul>
-    </div>
+    <CategoryList
+      category={category}
+      categoryItems={categoryItems}
+      renderItem={renderItem}
+    />
   );
 
   const renderItem = ({ id, name, quantity, category }) => (
