@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
-export default function useSortAndFilter(itemsJson) {
+import itemsJson from './items';
+
+export default function useSortAndFilter() {
   const items = [...itemsJson];
 
   const [sortBy, setSortBy] = useState('name');
@@ -13,7 +15,7 @@ export default function useSortAndFilter(itemsJson) {
       itemsByCategory[currentItem.category] || [];
 
     itemsByCategory[currentItem.category].push(currentItem);
-    
+
     return itemsByCategory;
   };
 

@@ -1,7 +1,6 @@
 'use client';
 
 import Item from './item';
-import itemsJson from './items';
 import Button from './button';
 import useSortAndFilter from './use-sort-and-filter';
 
